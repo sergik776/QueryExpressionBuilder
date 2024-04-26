@@ -81,16 +81,16 @@ And now, in the controller method, which represents the endpoint, simply pass th
         }
 
         /// <summary>
-        /// Метод получения юзеров
+        /// Method for get users
         /// </summary>
-        /// <param name="queryParams">Объект содержащий параметры фильтрации</param>
-        /// <returns>Возвращает список юзеров</returns>
+        /// <param name="queryParams">Object containing filtering parameters</param>
+        /// <returns>Returns a list of users</returns>
         [HttpGet("[controller]/GetUsers")]
         public async Task<IEnumerable<User>> GetUsers([FromQuery] UserQuery queryParams)
         {
-            //Генерируем предикат на основе параметров
+            //Generating a predicate based on parameters
             var predicate = ExpressionBuilder.GetPredicate<User, UserQuery>(queryParams);
-            //Передаем предикат в сервис и возвращаем результат
+            //We pass the predicate to the service and return the result
             var result = await userService.GetUsers(predicate);
             return result;
         }
