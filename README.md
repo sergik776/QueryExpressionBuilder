@@ -104,6 +104,8 @@ SELECT "u"."Id", "u"."Amount", "u"."BirthDate", "u"."Email", "u"."Name", "u"."Pa
       FROM "Users" AS "u"
       WHERE instr("u"."Name", 'M') > 0 AND "u"."BirthDate" >= '2000-01-01 00:00:00' AND "u"."BirthDate" <= '2040-01-01 00:00:00' AND "u"."Amount" >= 1000
 ```
+## License
+This project is distributed under the [MIT](https://opensource.org/licenses/MIT) license, which allows free use, modification, and distribution of the code in accordance with the terms of the MIT license.
 <br><br><br>
 
 # QueryExpressionBuilder
@@ -213,3 +215,5 @@ SELECT "u"."Id", "u"."Amount", "u"."BirthDate", "u"."Email", "u"."Name", "u"."Pa
       FROM "Users" AS "u"
       WHERE instr("u"."Name", 'M') > 0 AND "u"."BirthDate" >= '2000-01-01 00:00:00' AND "u"."BirthDate" <= '2040-01-01 00:00:00' AND "u"."Amount" >= 1000
 ```
+## Лицензия
+Этот проект распространяется под лицензией [MIT](https://opensource.org/licenses/MIT), которая разрешает свободное использование, изменение и распространение кода в соответствии с условиями лицензии MIT.
