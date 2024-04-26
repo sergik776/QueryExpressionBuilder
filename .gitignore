@@ -1,0 +1,4 @@
+.vs/*
+QueryExpressionBuilder/bin/*
+QueryExpressionBuilder/obj/*
+QueryExpressionBuilder/Properties/*
