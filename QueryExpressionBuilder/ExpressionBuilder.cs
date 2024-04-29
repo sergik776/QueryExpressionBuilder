@@ -87,7 +87,8 @@ namespace QueryExpressionBuilder
 
             //Только те свойства которые помечены атрибутами
             var T_pr_props = typeof(TQE).GetProperties().Where(prop => prop.GetCustomAttribute<LessOrEqualAttribute>() != null ||
-                        prop.GetCustomAttribute<GreaterOrEqualAttribute>() != null || prop.GetCustomAttribute<StartWithAttribute>() != null).ToArray();
+                        prop.GetCustomAttribute<GreaterOrEqualAttribute>() != null || prop.GetCustomAttribute<StartWithAttribute>() != null || 
+                        prop.GetCustomAttribute<ContainsAttribute>() != null || prop.GetCustomAttribute<EqualsAttribute>() != null).ToArray();
 
             //Проходимся по всем параметрам класса БД
             foreach (var p in typeof(TDB).GetProperties())
@@ -97,7 +98,18 @@ namespace QueryExpressionBuilder
                 {
                     if (y.GetCustomAttribute<StartWithAttribute>() != null)
                     {
-                        var propertyY = Expression.Property(userParameter, y.Name);
+                        var propertyY = Expression.Property(userParameter, p.Name);
+                        var propertyP = Expression.Property(userParameter, p.Name);
+                        var containsCall = Expression.Call(propertyP, "StartsWith", null, Expression.Constant(y.GetValue(query), typeof(string)));
+                        var obj = y.GetValue(query);
+                        if (obj != null)
+                        {
+                            conditions.Add(containsCall);
+                        }
+                    }
+                    else if(y.GetCustomAttribute<ContainsAttribute>() != null)
+                    {
+                        var propertyY = Expression.Property(userParameter, p.Name);
                         var propertyP = Expression.Property(userParameter, p.Name);
                         var containsCall = Expression.Call(propertyP, "Contains", null, Expression.Constant(y.GetValue(query), typeof(string)));
                         var obj = y.GetValue(query);
@@ -129,6 +141,19 @@ namespace QueryExpressionBuilder
                             var value = Convert.ChangeType(obj, p.PropertyType);
                             var constantValue = Expression.Constant(value, p.PropertyType);
                             var condition = Expression.LessThanOrEqual(propertyY, constantValue);
+                            conditions.Add(condition);
+                        }
+                    }
+                    else if(y.GetCustomAttribute<EqualsAttribute>() != null)
+                    {
+                        var propertyName = y.GetCustomAttribute<EqualsAttribute>().PropertyName;
+                        var propertyY = Expression.Property(userParameter, propertyName);
+                        var obj = y.GetValue(query);
+                        if (obj != null)
+                        {
+                            var value = Convert.ChangeType(obj, p.PropertyType);
+                            var constantValue = Expression.Constant(value, p.PropertyType);
+                            var condition = Expression.Equal(propertyY, constantValue);
                             conditions.Add(condition);
                         }
                     }

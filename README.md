@@ -11,10 +11,12 @@ Currently, there are 3 attributes:<br>
 
 Namespace QueryExpressionBuilder.Attributes.String - attributes for properties of type String<br>
 StartWithAttribute - Indicates that a filter equivalent to the System.String.StartWith() function will be used for the property.<br>
+ContainsAttribute - Indicates that a filter equivalent to the System.String.Contains() function will be used for the property.<br>
 
 Namespace QueryExpressionBuilder.Attributes.Numbers - attribute for all properties that are numeric, including DateTime<br>
 GreaterOrEqualAttribute - Indicates that a filter equivalent to the >= conditional expression will be used for the property.<br>
 LessOrEqualAttribute - Indicates that a filter equivalent to the <= conditional expression will be used for the property.<br>
+EqualsAttribute - Just compares values like in a function Equals.<br>
 
 You need to pass the property name from the class representing the entity in the database to the attribute constructor.
 
@@ -122,10 +124,12 @@ This project is distributed under the [MIT](https://opensource.org/licenses/MIT)
 
 Пространство имен QueryExpressionBuilder.Attributes.String - атрибуты для свойств типа String<br>
 StartWithAttribute - Означает, что дял свойства будет использоватся фильтр с аналогом функции System.String.StartWith()<br>
+ContainsAttribute - Означает, что дял свойства будет использоватся фильтр с аналогом функции System.String.Contains()<br>
 
 Пространство имен QueryExpressionBuilder.Attributes.Numbers - атрибут для всех свойств которые ввляются числовыми, в том числе DateTime<br>
 GreaterOrEqualAttribute - Означает, что для свойства будет использоваться фильтр с аналогом условного выражения >=<br>
 LessOrEqualAttribute - Означает, что для свойства будет использоваться фильтр с аналогом условного выражения <=<br>
+EqualsAttribute - Просто то же самое, что и Equals.<br>
 
 В конструктор атрибута необходимо передать название свойства из класса представляющий сущьность в БД.<br>
 

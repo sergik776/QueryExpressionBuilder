@@ -20,6 +20,16 @@
             {
             }
         }
+
+        /// <summary>
+        /// Filtration by contains function
+        /// </summary>
+        public class ContainsAttribute : BasePredicateAttribute
+        {
+            public ContainsAttribute(string propertyName) : base (propertyName)
+            {
+            }
+        }
     }
 
     /// <summary>
@@ -28,7 +38,7 @@
     public class Numbers
     {
         /// <summary>
-        /// Filtration func >=
+        /// Filtration func GreaterOrEqual
         /// </summary>
         [AttributeUsage(AttributeTargets.Property)]
         public class GreaterOrEqualAttribute : BasePredicateAttribute
@@ -42,7 +52,7 @@
         }
 
         /// <summary>
-        /// Filtration func <=
+        /// Filtration func LessOrEqual
         /// </summary>
         [AttributeUsage(AttributeTargets.Property)]
         public class LessOrEqualAttribute : BasePredicateAttribute
@@ -54,6 +64,17 @@
             {
             }
         }
+
+        /// <summary>
+        /// Filtration by equals function
+        /// </summary>
+        public class EqualsAttribute : BasePredicateAttribute
+        {
+            public EqualsAttribute(string propertyName) : base(propertyName)
+            {
+
+            }
+        }
     }
 
     /// <summary>
@@ -62,8 +83,15 @@
     [AttributeUsage(AttributeTargets.Property)]
     public class BasePredicateAttribute : Attribute
     {
+        /// <summary>
+        /// Name of property in DB
+        /// </summary>
         public string PropertyName { get; set; }
 
+        /// <summary>
+        /// Constructor with name of property in DB
+        /// </summary>
+        /// <param name="propertyName"></param>
         public BasePredicateAttribute(string propertyName)
         {
             PropertyName = propertyName;
