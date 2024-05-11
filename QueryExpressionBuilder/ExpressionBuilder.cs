@@ -98,23 +98,23 @@ namespace QueryExpressionBuilder
                 {
                     if (y.GetCustomAttribute<StartWithAttribute>() != null)
                     {
-                        var propertyY = Expression.Property(userParameter, p.Name);
-                        var propertyP = Expression.Property(userParameter, p.Name);
-                        var containsCall = Expression.Call(propertyP, "StartsWith", null, Expression.Constant(y.GetValue(query), typeof(string)));
                         var obj = y.GetValue(query);
                         if (obj != null)
                         {
+                            var propertyY = Expression.Property(userParameter, p.Name);
+                            var propertyP = Expression.Property(userParameter, p.Name);
+                            var containsCall = Expression.Call(propertyP, "StartsWith", null, Expression.Constant(y.GetValue(query), typeof(string)));
                             conditions.Add(containsCall);
                         }
                     }
                     else if(y.GetCustomAttribute<ContainsAttribute>() != null)
                     {
-                        var propertyY = Expression.Property(userParameter, p.Name);
-                        var propertyP = Expression.Property(userParameter, p.Name);
-                        var containsCall = Expression.Call(propertyP, "Contains", null, Expression.Constant(y.GetValue(query), typeof(string)));
                         var obj = y.GetValue(query);
                         if (obj != null)
                         {
+                            var propertyY = Expression.Property(userParameter, p.Name);
+                            var propertyP = Expression.Property(userParameter, p.Name);
+                            var containsCall = Expression.Call(propertyP, "Contains", null, Expression.Constant(y.GetValue(query), typeof(string)));
                             conditions.Add(containsCall);
                         }
                     }

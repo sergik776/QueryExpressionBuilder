@@ -3,12 +3,11 @@
     <metadata>
         <!-- Required elements-->
         <id>QueryExpressionBuilder</id>
-        <version>1.0.0.0</version>
+        <version>1.1.0.2904</version>
         <description>This library helps create a predicate function for filtering database queries based on a model.</description>
         <authors>Created by Taogar. </authors>
 		<licenseUrl>This project is distributed under the [MIT](https://opensource.org/licenses/MIT) license, which allows free use, modification, and distribution of the code in accordance with the terms of the MIT license.</licenseUrl>
-        <!-- Optional elements -->
-        <!-- ... -->
+        <projectUrl>Link on [GitHub](https://github.com/sergik776/QueryExpressionBuilder)</projectUrl>
     </metadata>
     <!-- Optional 'files' node -->
 </package>
