@@ -5,6 +5,23 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
+	<Version>1.1.0.2904</Version>
+	<SignAssembly>True</SignAssembly>
+	<Authors>Taogar</Authors>
+	<PackageProjectUrl></PackageProjectUrl>
+	<RepositoryUrl>https://github.com/sergik776/QueryExpressionBuilder</RepositoryUrl>
+	<AssemblyVersion>1.1.0.2904</AssemblyVersion>
+	<FileVersion>1.1.0.2904</FileVersion>
+	<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
