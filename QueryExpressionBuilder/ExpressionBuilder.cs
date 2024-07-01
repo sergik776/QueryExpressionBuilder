@@ -90,6 +90,18 @@ namespace QueryExpressionBuilder
                         prop.GetCustomAttribute<GreaterOrEqualAttribute>() != null || prop.GetCustomAttribute<StartWithAttribute>() != null || 
                         prop.GetCustomAttribute<ContainsAttribute>() != null || prop.GetCustomAttribute<EqualsAttribute>() != null).ToArray();
 
+            // Проверка, пустые ли все свойства query
+            bool allPropertiesNull = true;
+            for (int i = 0; i < T_pr_props.Length; i++)
+            {
+                if (T_pr_props[i].GetValue(query) != null)
+                {
+                    allPropertiesNull = false;
+                    break;
+                }
+            }
+            if (allPropertiesNull) return _ => true;
+
             //Проходимся по всем параметрам класса БД
             foreach (var p in typeof(TDB).GetProperties())
             {
