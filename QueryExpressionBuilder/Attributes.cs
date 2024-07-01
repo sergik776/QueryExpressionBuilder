@@ -4,8 +4,7 @@
     /// Attribute to filtration strings
     /// </summary>
     public class String
-    {
-        
+    {        
         /// <summary>
         /// Filtration func StartWith
         /// </summary>
